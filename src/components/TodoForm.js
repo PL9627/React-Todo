@@ -23,7 +23,21 @@ class ToDoForm extends React.Component {
         this.props.addToDoItem(e, this.state.item);
     };
 
-    render() {}
+    render() {
+        console.log("ToDoForm Props:", this.props);
+
+        return (
+            <form onSubmit = {this.submitItem}>
+                <input 
+                type = "text"
+                name = "To Do Item..."
+                value = {this.state.item}
+                onChange = {this.handleChanges}/>
+                <button>Add To Do Item</button>
+                <button className = 'clear-btn' onClick = {props.clearCompleted}>Clear Completed</button>
+            </form>
+        )
+    }
 };
 
 export default ToDoForm;
