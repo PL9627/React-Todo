@@ -2,17 +2,17 @@ import React from 'react';
 
 const toDoItems = [
   {
-    name: "Clean Bedroom",
+    task: "Clean Bedroom",
     id: 1,
     completed: false
   },
   {
-    name: "Make Dinner",
+    task: "Make Dinner",
     id: 2,
     completed: false
   },
   {
-    name: "Change Engine Oil",
+    task: "Change Engine Oil",
     id: 3,
     completed: false
   }
@@ -24,9 +24,28 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
+    
     this.state = {
       toDoItems
     };
+  }
+
+  addToDoItem = (e, item) => {
+    console.log("First To Do Item:", this.state.toDoItems);
+
+    e.preventDefault();
+
+    const newToDoItem = {
+      task: item,
+      id: Date.now(),
+      completed: false
+    };
+
+    this.setState({
+      toDoItems: [...this.state.toDoItems, newToDoItem]
+    });
+
+    console.log("Second To Do Item:", this.state.toDoItems);
   }
 
   render() {
