@@ -23,7 +23,7 @@ class ToDoForm extends React.Component {
         this.props.addToDoItem(e, this.state.item);
     };
 
-    render() {
+    render(props) {
         console.log("ToDoForm Props:", this.props);
 
         return (

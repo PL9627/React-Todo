@@ -1,5 +1,8 @@
 import React from 'react';
 
+import ToDoList from './components/TodoList';
+import ToDoForm from './components/TodoForm';
+
 const toDoItems = [
   {
     task: "Clean Bedroom",
