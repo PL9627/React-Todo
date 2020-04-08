@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import ToDoList from './components/TodoList';
-import ToDoForm from './components/TodoForm';
+import ToDoList from "./components/TodoList";
+import ToDoForm from "./components/TodoForm";
 
 const toDoItems = [
   {
@@ -27,7 +27,7 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    
+
     this.state = {
       toDoItems
     };
@@ -49,7 +49,7 @@ class App extends React.Component {
     });
 
     console.log("Second To Do Item:", this.state.toDoItems);
-  }
+  };
 
   toggleToDoItem = itemId => {
     console.log(itemId);
@@ -58,7 +58,8 @@ class App extends React.Component {
       toDoItems: this.state.toDoItems.map(item => {
         if (itemId === item.id) {
           return {
-            ...item, completed: !item.completed
+            ...item,
+            completed: !item.completed
           };
         }
         return item;
@@ -77,7 +78,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>To Do List</h2>
+        <div>
+          <ToDoList
+            toDoItems={this.state.toDoItems}
+            toggleToDoItem={this.toggleToDoItem}
+          />
+          <ToDoForm
+            addToDoItem={this.addToDoItem}
+            clearCompleted={this.clearCompleted}
+          />
+        </div>
       </div>
     );
   }
