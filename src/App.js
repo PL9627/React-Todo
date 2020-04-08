@@ -63,6 +63,14 @@ class App extends React.Component {
     });
   };
 
+  clearCompleted = e => {
+    e.preventDefault();
+
+    this.setState({
+      toDoItems: this.state.toDoItems.filter(item => !item.completed)
+    });
+  };
+
   render() {
     return (
       <div>
