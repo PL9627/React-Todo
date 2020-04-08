@@ -7,7 +7,14 @@ import ToDo from './Todo';
 const ToDoList = props => {
     console.log("ToDoList Props:", props);
 
-    return()
+    return(
+        <div className = "ToDoList">
+            {props.toDoItems.map(item => (
+                <Item key = {item.id} item = {item} toggleToDoItem = {props.toggleToDoItem}/>
+            ))}
+            <button>Clear Completed</button>
+        </div>
+    )
 }
 
 export default ToDoList;
