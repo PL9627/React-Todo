@@ -48,6 +48,21 @@ class App extends React.Component {
     console.log("Second To Do Item:", this.state.toDoItems);
   }
 
+  toggleToDoItem = itemId => {
+    console.log(itemId);
+
+    this.setState({
+      toDoItems: this.state.toDoItems.map(item => {
+        if (itemId === item.id) {
+          return {
+            ...item, completed: !item.completed
+          };
+        }
+        return item;
+      })
+    });
+  };
+
   render() {
     return (
       <div>
