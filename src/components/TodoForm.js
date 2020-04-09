@@ -1,4 +1,17 @@
 import React from "react";
+import styled from 'styled-components';
+
+const Btn = styled.button`
+    margin: 0 2%;
+    border: 1px solid red;
+    border-radius: 5px;
+    color: red;
+
+    &:hover {
+        color: white;
+        background-color: red;
+    }
+`;
 
 class ToDoForm extends React.Component {
   constructor() {
@@ -32,7 +45,7 @@ class ToDoForm extends React.Component {
           value={this.state.item}
           onChange={this.handleChanges}
         />
-        <button>Add To Do Item</button>
+        <Btn>Add To Do Item</Btn>
       </form>
     );
   }

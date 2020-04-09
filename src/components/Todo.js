@@ -1,4 +1,14 @@
 import React from "react";
+import styled from 'styled-components';
+
+const Card = styled.p`
+    width: 10%;
+    border: 1px solid blue;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    color: blue;
+`;
 
 const ToDo = props => {
   return (
@@ -6,7 +16,7 @@ const ToDo = props => {
       className={`item${props.item.completed ? " completed" : ""}`}
       onClick={() => props.toggleToDoItem(props.item.id)}
     >
-      <p>{props.item.name}</p>
+      <Card>{props.item.name}</Card>
     </div>
   );
 };
