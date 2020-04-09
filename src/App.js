@@ -5,18 +5,8 @@ import ToDoForm from "./components/TodoForm";
 
 const toDoItems = [
   {
-    task: "Clean Bedroom",
+    name: "Clean Bedroom",
     id: 1,
-    completed: false
-  },
-  {
-    task: "Make Dinner",
-    id: 2,
-    completed: false
-  },
-  {
-    task: "Change Engine Oil",
-    id: 3,
     completed: false
   }
 ];
@@ -34,26 +24,20 @@ class App extends React.Component {
   }
 
   addToDoItem = (e, item) => {
-    console.log("First To Do Item:", this.state.toDoItems);
-
     e.preventDefault();
 
-    const newToDoItem = {
-      task: item,
+    const newItem = {
+      name: item,
       id: Date.now(),
       completed: false
     };
 
     this.setState({
-      toDoItems: [...this.state.toDoItems, newToDoItem]
+      toDoItems: [...this.state.toDoItems, newItem]
     });
-
-    console.log("Second To Do Item:", this.state.toDoItems);
   };
 
   toggleToDoItem = itemId => {
-    console.log(itemId);
-
     this.setState({
       toDoItems: this.state.toDoItems.map(item => {
         if (itemId === item.id) {
@@ -78,17 +62,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>To Do List</h2>
         <div>
-          <ToDoList
+          <h2>To Do List</h2>
+          <ToDoForm
+              addToDoItem={this.addToDoItem}
+            />
+        </div>
+        <ToDoList
             toDoItems={this.state.toDoItems}
             toggleToDoItem={this.toggleToDoItem}
-          />
-          <ToDoForm
-            addToDoItem={this.addToDoItem}
             clearCompleted={this.clearCompleted}
           />
-        </div>
       </div>
     );
   }

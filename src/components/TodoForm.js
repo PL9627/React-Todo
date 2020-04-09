@@ -10,9 +10,8 @@ class ToDoForm extends React.Component {
   }
 
   handleChanges = e => {
+      
     this.setState({ [e.target.name]: e.target.value });
-
-    console.log(this.state.item);
   };
 
   submitItem = e => {
@@ -24,18 +23,16 @@ class ToDoForm extends React.Component {
   };
 
   render() {
-    console.log("ToDoForm Props:", this.props);
-
+    console.log(this.state.item)
     return (
       <form onSubmit={this.submitItem}>
         <input
           type="text"
-          name="To Do Item..."
+          name="item"
           value={this.state.item}
           onChange={this.handleChanges}
         />
         <button>Add To Do Item</button>
-        <button className="clear-btn">Clear Completed</button>
       </form>
     );
   }
